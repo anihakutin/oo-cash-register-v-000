@@ -27,7 +27,7 @@ class CashRegister
       end
   end
   def void_last_transaction
-    self.items.pop
+    self.items.delete(self.last_item[:item])
     self.total -= self.last_item[:price] * self.last_item[:quantity]
   end
 end
