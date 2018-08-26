@@ -14,7 +14,7 @@ class CashRegister
   end
   def add_item(item, price, quantity = 1)
     self.total += price * quantity
-    self.items.concact << [item] * quantity
+    self.items.concat << [item] * quantity
   end
   def apply_discount
       if self.discount > 0
