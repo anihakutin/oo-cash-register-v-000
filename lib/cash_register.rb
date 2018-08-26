@@ -16,7 +16,7 @@ class CashRegister
   def add_item(item, price, quantity = 1)
     self.total += price * quantity
     self.items.concat([item] * quantity)
-    self.last_item = [item, price, quantity]
+    self.last_item = {:item => item, :price => price, :quantity=> quantity}
   end
   def apply_discount
       if self.discount > 0
@@ -28,6 +28,6 @@ class CashRegister
   end
   def void_last_transaction
     self.items.pop
-    self.total -= last_item[price] * last_item[quantity]
+    self.total -= self.last_item[price] * self.last_item[quantity]
   end
 end
